@@ -12,7 +12,10 @@
 		<clobbers target="fp" />
 	</js-module>
 
-	<hook src="scripts/after_prepare.js" type="after_prepare" />
+	<hook type="after_prepare" src="scripts/after_prepare.js" />
+	<hook type="after_plugin_install" src="scripts/after_plugin_add.js" />
+	<hook type="after_platform_add" src="scripts/after_plugin_add.js" />
+	<hook type="before_plugin_uninstall" src="scripts/before_plugin_rm.js" />
 
 	<preference name="APP_DOMAIN" />
     <preference name="APP_PATH" default ="/" />
@@ -23,12 +26,6 @@
 				<param name="android-package" value="org.apache.cordova.firebase.FirebasePlugin" />
 				<param name="onload" value="true" />
 			</feature>
-		</config-file>
-		<config-file parent="/resources" target="res/values/strings.xml">
-			<string name="google_app_id">@string/google_app_id</string>
-		</config-file>
-		<config-file parent="/resources" target="res/values/strings.xml">
-			<string name="google_api_key">@string/google_api_key</string>
 		</config-file>
 		<config-file target="AndroidManifest.xml" parent="/*">
 				<uses-permission android:name="android.permission.INTERNET" />

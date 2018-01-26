@@ -46,8 +46,8 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 // Crashlytics
-// import com.crashlytics.android.Crashlytics;
-// import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 // Dynamic Links
 import com.google.firebase.dynamiclinks.DynamicLink;
@@ -718,7 +718,7 @@ public class FirebasePlugin extends CordovaPlugin {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 try {
-                    //Crashlytics.getInstance().crash();
+                    Crashlytics.getInstance().crash();
                     callbackContext.success();
                 } catch (Exception e) {
                     FirebaseCrash.log(e.getMessage());
@@ -734,7 +734,7 @@ public class FirebasePlugin extends CordovaPlugin {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 try {
-                    //Crashlytics.log(crashMessage);
+                    Crashlytics.log(crashMessage);
                     callbackContext.success();
                 } catch (Exception e) {
                     FirebaseCrash.log(e.getMessage());
@@ -750,7 +750,7 @@ public class FirebasePlugin extends CordovaPlugin {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 try {
-                    //Crashlytics.logException(new Throwable(crashMessage));
+                    Crashlytics.logException(new Throwable(crashMessage));
                     callbackContext.success();
                 } catch (Exception e) {
                     FirebaseCrash.log(e.getMessage());

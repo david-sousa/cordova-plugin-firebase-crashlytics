@@ -184,3 +184,18 @@ exports.dynamicLinkCallback = function (dynamicLink) {
     ev.initEvent('dynamic-link', true, true, arguments);
     document.dispatchEvent(ev);
 };
+
+//
+// Crashlytics
+//
+exports.forceCrashlytics = function (success, error) {
+    exec(success, error, "FirebasePlugin", "forceCrashlytics");
+};
+
+exports.logCrashlytics = function (crashMessage, success, error) {
+    exec(success, error, "FirebasePlugin", "logCrashlytics", [crashMessage]);
+};
+
+exports.logExceptionCrashlytics = function (crashMessage, success, error) {
+    exec(success, error, "FirebasePlugin", "logExceptionCrashlytics", [crashMessage]);
+};
